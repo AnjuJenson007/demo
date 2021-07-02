@@ -1,12 +1,10 @@
 package com.main.project.java.Entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table
-public class User implements Serializable {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,18 +23,6 @@ public class User implements Serializable {
     @Column(name = "user_phone")
     private long userPhoneNumber;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<Product> product;
-
-    public Set<Product> getProduct() {
-        return product;
-    }
-
-    public void setProduct(Set<Product> product) {
-        this.product = product;
-    }
-
     public int getUserId() {
         return userId;
     }
@@ -53,11 +39,11 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-    public String getEmail() {
+    public String getUserEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setUserEmail(String email) {
         this.email = email;
     }
 

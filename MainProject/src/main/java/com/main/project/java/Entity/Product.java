@@ -1,11 +1,10 @@
 package com.main.project.java.Entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table
-public class Product implements Serializable {
+public class Product  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,26 +14,8 @@ public class Product implements Serializable {
     @Column(name = "product_name")
     private String productName;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
-    public Product(int productId, String productName, User user) {
-        this.productId = productId;
-        this.productName = productName;
-        this.user = user;
-    }
-
     public Product() {
 
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public int getProductId() {
